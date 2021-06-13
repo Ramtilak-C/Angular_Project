@@ -1,0 +1,49 @@
+<header>
+  <h2>List</h2>
+</header>
+<section>
+  <div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource">
+
+      <!-- Position Column -->
+      <ng-container matColumnDef="position">
+        <th mat-header-cell *matHeaderCellDef> Postion Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.position.name}} </td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="startsAt">
+        <th mat-header-cell *matHeaderCellDef>
+          <p>Starts At</p>
+            <input (keyup)="applyFilter($event.target.value)" (focus)="setupFilter('startsAt')" />
+        </th>
+        <td mat-cell *matCellDef="let element"> {{element.startsAt | date : 'dd-MM-yyyy HH:mm:ss'}} </td>
+      </ng-container>
+
+      <!-- Weight Column -->
+      <ng-container matColumnDef="endsAt">
+        <th mat-header-cell *matHeaderCellDef> 
+          <p>Ends At </p>
+          <input (keyup)="applyFilter($event.target.value)" (focus)="setupFilter('endsAt')" />
+        </th>
+        <td mat-cell *matCellDef="let element"> {{element.endsAt | date : 'dd-MM-yyyy HH:mm:ss'}} </td>
+      </ng-container>
+
+      <!-- Action Column -->
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef> Action </th>
+        <td mat-cell *matCellDef="let element">
+          <button type="button" class="btn btn-success" (click)="performAction(element)">Details</button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <div class="load-more">
+      <button type="button" class="btn btn-light" (click)="loadMore()">load more</button>
+    </div>
+    <mat-paginator [pageSizeOptions]="[10, 20]" [(pageSize)]="pageSize" showFirstLastButtons></mat-paginator>
+
+  </div>
+</section>

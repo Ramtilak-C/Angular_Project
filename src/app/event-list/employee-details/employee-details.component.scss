@@ -1,0 +1,18 @@
+table {
+    width: 100%;
+  }
+
+.event-list {
+    display: flex;
+    padding: 20px;
+}
+
+header h2 {
+    margin-left: 10px;
+}
+
+.back-button {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 20px;
+}

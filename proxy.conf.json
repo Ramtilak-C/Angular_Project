@@ -1,0 +1,10 @@
+{
+    "/api": {
+      "target": "https://fyx8bq1lpa.execute-api.eu-central-1.amazonaws.com/Prod/events",
+      "secure": false,
+      "logLevel": "debug",
+      "pathRewrite": {
+        "^/api": ""
+      }
+    }
+  }
